@@ -57,6 +57,20 @@ function runTest(){
 			, result, shouldBe
 		);
 
+	loginForm = requireFrom.views('login.js')
+	signupForm = requireFrom.views('signup.js')
+	userModel = requireFrom.models('user')
+	normalizeUser = requireFrom.utility('normalize/user.js');
+
+	var result = JSON.stringify([loginForm, signupForm, userModel, normalizeUser]);
+	
+	if(result === shouldBe)
+		console.log('Test Passed');
+	else
+		console.log(
+			'Test Failed\n\n\tResult: \n\t\t%s\n\n\tShould have been: \n\t\t%s'
+			, result, shouldBe
+		);
 }
 
 
